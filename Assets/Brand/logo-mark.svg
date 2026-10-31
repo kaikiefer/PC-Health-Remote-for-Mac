@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <title>PC Health Remote — Pulse Link mark</title>
+  <desc>An orange telemetry pulse inside a cyan and orange open circuit ring.</desc>
+  <circle cx="512" cy="512" r="250" stroke="#3bdef5" stroke-opacity=".3" stroke-width="3"/>
+  <circle cx="512" cy="512" r="291" stroke="#3bdef5" stroke-width="15" stroke-dasharray="1115 714" transform="rotate(18 512 512)"/>
+  <circle cx="512" cy="512" r="291" stroke="#ff7d2e" stroke-width="15" stroke-dasharray="466 1363" transform="rotate(155 512 512)"/>
+  <circle cx="512" cy="512" r="340" stroke="#3bdef5" stroke-opacity=".6" stroke-width="16" stroke-dasharray="4 40.5"/>
+  <path d="M290 518h115l60-119 65 243 60-124h144" stroke="#ff7d2e" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

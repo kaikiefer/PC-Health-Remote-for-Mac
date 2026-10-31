@@ -1,0 +1,33 @@
+name: Prepare draft GitHub release
+on:
+  push:
+    tags: ['v*.*.*']
+permissions:
+  contents: read
+jobs:
+  release:
+    runs-on: macos-15
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Run tests
+        run: ./scripts/test.sh
+      - name: Build universal release
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: ./scripts/release.sh
+      - name: Create draft for maintainer review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            build/releases/*.zip build/releases/*.sha256 \
+            --verify-tag --draft \
+            --title "PC Health Remote for Mac $RELEASE_TAG" \
+            --notes-file build/releases/RELEASE_NOTES.md
